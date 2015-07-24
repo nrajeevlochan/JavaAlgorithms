@@ -293,9 +293,8 @@ public class ArrayStructures {
         if (str.length() == 1) {
             return str;
         } else {
-            String what = str.substring(0, str.length()-1);
-            System.out.println("check it out: " + what + " Length: " + (str.length()-1));
-           return reverseee += str.charAt(str.length()-1) + reverseStringRecurcively(what);
+           return reverseee += str.charAt(str.length()-1) + reverseStringRecurcively(
+                           str.substring(0, str.length()-1));
         }
     }
 
@@ -361,6 +360,7 @@ public class ArrayStructures {
         //System.out.println("Length: " + "This is code of recursion!!".length());
         //arrayst.strToIntManually();
         //arrayst.autoBoxingEx();
+        System.out.println("Find out: " + arrayst.reverseStringRecurcively("This is code of recursion!!"));
     }
 
 }
