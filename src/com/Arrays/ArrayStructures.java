@@ -2,6 +2,7 @@ package com.Arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
@@ -344,6 +345,51 @@ public class ArrayStructures {
 
         System.out.println("Out Values: " + (a == b));
     }
+    
+    /*
+     * Program to find missing number from 1 to 9 integers
+     */
+    public void missingNumber() {
+    	int[] array = {1,2,4,5,6,7,8,9};
+    	int sum = 0;
+    	for(int k=0;k<array.length;k++){
+    		sum+=array[k];
+    	}
+    	System.out.println("total sum :" + sum);
+    	int n = array.length+1;
+    	System.out.println("what is n: " + n);
+    	System.out.println("total sum :" + (n*(n+1)/2 - sum));
+    	int a = 1;
+    	int b = 1;
+    	for (int i=1; i<=9; i++) {
+    		a = a^i;
+    	}
+    	System.out.println("Inter mediate output: " + a);
+    	
+    	for(int j=0; j<array.length; j++) {
+    		b = b^array[j];
+    	}
+    	System.out.println("final output: " + (a^b));
+    }
+    
+    /*
+     * Program to find missing number from 1 to 10
+     * using BitSet. 
+     */
+    public void missingNumbWithBitset() {
+    	int[] a = {2,4,5,7,8,9,10};
+    	int n=10;
+    	BitSet bitset = new BitSet(n);
+    	for(int i=0;i<a.length;i++){
+    		bitset.set(a[i]-1);
+    	}
+    	int missingcount = n - a.length;
+    	int lastmissingcount = 0;
+    	for(int j=0;j<missingcount;j++){
+    		lastmissingcount = bitset.nextClearBit(lastmissingcount);
+    		System.out.println(++lastmissingcount);
+    	}
+    }
 
     public static void main(String[] args) {
         ArrayStructures arrayst = new ArrayStructures();
@@ -360,7 +406,8 @@ public class ArrayStructures {
         //System.out.println("Length: " + "This is code of recursion!!".length());
         //arrayst.strToIntManually();
         //arrayst.autoBoxingEx();
-        System.out.println("Find out: " + arrayst.reverseStringRecurcively("This is code of recursion!!"));
+        //System.out.println("Find out: " + arrayst.reverseStringRecurcively("This is code of recursion!!"));
+        arrayst.missingNumbWithBitset();
     }
 
 }
