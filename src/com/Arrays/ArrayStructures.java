@@ -390,12 +390,36 @@ public class ArrayStructures {
     		System.out.println(++lastmissingcount);
     	}
     }
+    
+    /*
+     * find pairs of numbers equal to a number
+     */
+    public void numberPair() {
+    	int[] a = {1,2,3,4,5,6};
+    	for(int i=0;i<a.length;i++){
+    		for(int j=0;j<a.length;j++){
+    			if(5 == (a[i] + a[j])){
+    				System.out.println("pair of elements: " + "[" + a[i] + "," + a[j] + "]");
+    			}
+    		}
+    	}
+    }
+    
+    public void insertionSort2nd() {
+    	for(int i=0; i<arraySize; i++) {
+    		int j = i;
+    		while(j>0 && myArray[j] < myArray[j-1]) {
+    			swapVal(j, j-1);
+    			j--;
+    		}
+    	}
+    }
 
     public static void main(String[] args) {
         ArrayStructures arrayst = new ArrayStructures();
         //arrayst.fillRandomNumbers();
         //arrayst.printOutPut();
-        //arrayst.usingRandomGeneratorNumber();
+        arrayst.usingRandomGeneratorNumber();
         //arrayst.insertionSortRajeev();
         //arrayst.insertionSort();
         //arrayst.printOutPut();
@@ -407,7 +431,10 @@ public class ArrayStructures {
         //arrayst.strToIntManually();
         //arrayst.autoBoxingEx();
         //System.out.println("Find out: " + arrayst.reverseStringRecurcively("This is code of recursion!!"));
-        arrayst.missingNumbWithBitset();
+        //arrayst.missingNumbWithBitset();
+        //arrayst.numberPair();
+        arrayst.insertionSort2nd();
+        arrayst.printOutPut();
     }
 
 }
