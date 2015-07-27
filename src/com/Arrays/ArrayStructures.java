@@ -350,26 +350,26 @@ public class ArrayStructures {
      * Program to find missing number from 1 to 9 integers
      */
     public void missingNumber() {
-    	int[] array = {1,2,4,5,6,7,8,9};
-    	int sum = 0;
-    	for(int k=0;k<array.length;k++){
-    		sum+=array[k];
-    	}
-    	System.out.println("total sum :" + sum);
-    	int n = array.length+1;
-    	System.out.println("what is n: " + n);
-    	System.out.println("total sum :" + (n*(n+1)/2 - sum));
-    	int a = 1;
-    	int b = 1;
-    	for (int i=1; i<=9; i++) {
-    		a = a^i;
-    	}
-    	System.out.println("Inter mediate output: " + a);
-    	
-    	for(int j=0; j<array.length; j++) {
-    		b = b^array[j];
-    	}
-    	System.out.println("final output: " + (a^b));
+        int[] array = {1,2,4,5,6,7,8,9};
+        int sum = 0;
+        for(int k=0;k<array.length;k++){
+            sum+=array[k];
+        }
+        System.out.println("total sum :" + sum);
+        int n = array.length+1;
+        System.out.println("what is n: " + n);
+        System.out.println("total sum :" + (n*(n+1)/2 - sum));
+        int a = 1;
+        int b = 1;
+        for (int i=1; i<=9; i++) {
+            a = a^i;
+        }
+        System.out.println("Inter mediate output: " + a);
+
+        for(int j=0; j<array.length; j++) {
+            b = b^array[j];
+        }
+        System.out.println("final output: " + (a^b));
     }
     
     /*
@@ -377,42 +377,57 @@ public class ArrayStructures {
      * using BitSet. 
      */
     public void missingNumbWithBitset() {
-    	int[] a = {2,4,5,7,8,9,10};
-    	int n=10;
-    	BitSet bitset = new BitSet(n);
-    	for(int i=0;i<a.length;i++){
-    		bitset.set(a[i]-1);
-    	}
-    	int missingcount = n - a.length;
-    	int lastmissingcount = 0;
-    	for(int j=0;j<missingcount;j++){
-    		lastmissingcount = bitset.nextClearBit(lastmissingcount);
-    		System.out.println(++lastmissingcount);
-    	}
+        int[] a = {2,4,5,7,8,9,10};
+        int n=10;
+        BitSet bitset = new BitSet(n);
+        for(int i=0;i<a.length;i++){
+            bitset.set(a[i]-1);
+        }
+        int missingcount = n - a.length;
+        int lastmissingcount = 0;
+        for(int j=0;j<missingcount;j++){
+            lastmissingcount = bitset.nextClearBit(lastmissingcount);
+            System.out.println(++lastmissingcount);
+        }
     }
     
     /*
      * find pairs of numbers equal to a number
      */
     public void numberPair() {
-    	int[] a = {1,2,3,4,5,6};
-    	for(int i=0;i<a.length;i++){
-    		for(int j=0;j<a.length;j++){
-    			if(5 == (a[i] + a[j])){
-    				System.out.println("pair of elements: " + "[" + a[i] + "," + a[j] + "]");
-    			}
-    		}
-    	}
+        int[] a = {1,2,3,4,5,6};
+        for(int i=0;i<a.length;i++){
+            for(int j=0;j<a.length;j++){
+                if(5 == (a[i] + a[j])){
+                    System.out.println("pair of elements: " + "[" + a[i] + "," + a[j] + "]");
+                }
+            }
+        }
     }
-    
+
     public void insertionSort2nd() {
-    	for(int i=0; i<arraySize; i++) {
-    		int j = i;
-    		while(j>0 && myArray[j] < myArray[j-1]) {
-    			swapVal(j, j-1);
-    			j--;
-    		}
-    	}
+        for(int i=0; i<arraySize; i++) {
+            int j = i;
+            while(j>0 && myArray[j] < myArray[j-1]) {
+                swapVal(j, j-1);
+                j--;
+            }
+        }
+    }
+
+    public void convertArraylistToHashset() {
+        List<String> list = new ArrayList<>();
+        list.add("1st");
+        list.add("2nd");
+        list.add("3rd");
+        list.add("3rd");
+
+        System.out.println("Array List: " + list + " Size: " + list.size());
+
+        HashSet hashset = new HashSet(list);
+
+        System.out.println("Hash Set: " + hashset + " Size: " + hashset.size());
+        
     }
 
     public static void main(String[] args) {
@@ -433,8 +448,9 @@ public class ArrayStructures {
         //System.out.println("Find out: " + arrayst.reverseStringRecurcively("This is code of recursion!!"));
         //arrayst.missingNumbWithBitset();
         //arrayst.numberPair();
-        arrayst.insertionSort2nd();
-        arrayst.printOutPut();
+/*        arrayst.insertionSort2nd();
+        arrayst.printOutPut();*/
+        arrayst.convertArraylistToHashset();
     }
 
 }
